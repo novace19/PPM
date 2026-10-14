@@ -1,0 +1,38 @@
+BMI KALKULAČKA – Vojtěch Nováček
+
+Otevřete složku BMI_Kalkulacka v Android Studiu (File > Open).
+Pro Android aplikaci použijte Android Studio s Android SDK, nikoli samotnou IntelliJ IDEA.
+Gradle JDK: 17, Gradle: 8.9, Android Gradle Plugin: 8.7.3, compile/target SDK: 35,
+minimální Android: 6.0 (API 23). Nechte dokončit Gradle Sync a nabídnuté stažení SDK.
+Potom vyberte emulátor nebo telefon a spusťte app zelenou šipkou Run.
+Z příkazové řádky: gradlew.bat :app:assembleDebug (Windows), ./gradlew :app:assembleDebug (Linux/macOS).
+Jednotkové testy: gradlew.bat :app:testDebugUnitTest.
+Při prvním otevření je potřeba internet pro stažení Gradle, pluginu a SDK.
+local.properties s cestou k SDK si vytváří Android Studio samo.
+
+STRUKTURA PODLE ZADÁNÍ
+app/src/main/res/layout/activity_main.xml: EditText number, EditText numberDecimal,
+Button pro výpočet, TextView pro výsledek, ImageButton pro informace.
+app/src/main/res/values/strings.xml: všechny texty, výstup s parametry, seznamy kategorií a rozmezí.
+MainActivity: čtení vstupů, kontrola prázdných polí, try-catch NumberFormatException,
+výpočet v double, formátování výsledku a Intent pro druhou aktivitu.
+BmiCalculator: výpočet a kontrola kladných konečných čísel; hmotnost s čárkou i tečkou.
+CategoriesActivity: tabulka ze string-array, zavření přes tlačítko s křížkem pomocí finish().
+Rozpracované vstupy a výsledek se zachovají při otočení zařízení; změna vstupu skryje starý výsledek.
+Aplikace nepožaduje žádná oprávnění a neukládá ani neodesílá zadané hodnoty.
+
+MANUÁLNÍ KONTROLA NA TELEFONU / EMULÁTORU
+1. Prázdná pole → chyby u polí, žádný výpočet.
+2. Výška 175, hmotnost 70 → BMI 22,86, Normální hmotnost.
+3. Výška 175, hmotnost 70,5 nebo 70.5 → stejný výsledek.
+4. Nulové/neplatné vstupy → chyba, aplikace nespadne.
+5. Ikona informace → tabulka 6 kategorií, křížek nebo systémové Zpět → formulář.
+6. Otočení obrazovky po výpočtu → zůstanou vstupy i výsledek.
+7. Menší obrazovka / zvětšené písmo → obsah lze posouvat.
+Tento seznam je návod pro ruční ověření, nikoli tvrzení, že zde byl spuštěn emulátor.
+
+ZDROJE
+https://developer.android.com/build/releases/agp-8-7-0-release-notes
+https://www.who.int/europe/news-room/fact-sheets/item/nutrition---maintaining-a-healthy-lifestyle
+Kategorie jsou pro dospělé. Hranice se porovnávají s nezaokrouhleným BMI,
+na obrazovce se hodnota formátuje na dvě desetinná místa podle jazyka zařízení.

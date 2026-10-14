@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BMI kalkulačka</string>
+    <string name="eyebrow">OSOBNÍ INDEX</string>
+    <string name="main_title">Vaše BMI,
+jednoduše.</string>
+    <string name="main_subtitle">Zadejte výšku a hmotnost. Výsledek se zobrazí hned pod formulářem.</string>
+    <string name="height_label">Výška v centimetrech</string>
+    <string name="weight_label">Hmotnost v kilogramech</string>
+    <string name="hint_height">Výška (cm)</string>
+    <string name="hint_weight">Hmotnost (kg)</string>
+    <string name="weight_help">Desetinnou část můžete oddělit čárkou i tečkou.</string>
+    <string name="btn_calculate">Spočítat BMI</string>
+    <string name="error_empty">Vyplňte všechny údaje!</string>
+    <string name="error_invalid">Zadejte platné kladné číslo!</string>
+    <string name="error_height">Výšku zadejte jako kladné celé číslo v cm.</string>
+    <string name="result_title">VÁŠ VÝSLEDEK</string>
+    <string name="result_placeholder">Váš výsledek se zobrazí zde.</string>
+    <string name="bmi_result">BMI: %1$s
+%2$s</string>
+    <string name="result_note">Orientační výpočet pro dospělé. Kategorie vychází z nezaokrouhlené hodnoty BMI.</string>
+    <string name="info_description">Zobrazit přehled kategorií BMI</string>
+    <string name="categories_eyebrow">JAK ČÍST VÝSLEDEK</string>
+    <string name="categories_title">Kategorie BMI</string>
+    <string name="categories_subtitle">Přehled rozmezí BMI pro dospělé.</string>
+    <string name="category_column">Kategorie</string>
+    <string name="range_column">Rozmezí BMI</string>
+    <string name="back_description">Zavřít přehled a vrátit se ke kalkulačce</string>
+    <string name="category_underweight">Podváha</string>
+    <string name="category_normal">Normální hmotnost</string>
+    <string name="category_overweight">Nadváha</string>
+    <string name="category_obesity_1">Obezita I. stupně</string>
+    <string name="category_obesity_2">Obezita II. stupně</string>
+    <string name="category_obesity_3">Obezita III. stupně</string>
+    <string name="range_underweight">BMI &lt; 18,5</string>
+    <string name="range_normal">18,5 ≤ BMI &lt; 25</string>
+    <string name="range_overweight">25 ≤ BMI &lt; 30</string>
+    <string name="range_obesity_1">30 ≤ BMI &lt; 35</string>
+    <string name="range_obesity_2">35 ≤ BMI &lt; 40</string>
+    <string name="range_obesity_3">BMI ≥ 40</string>
+    <string name="formula_title">Jak se BMI počítá?</string>
+    <string name="formula">BMI = hmotnost (kg) / výška (m)²</string>
+    <string name="example">Například 70 kg a 175 cm → BMI 22,86.</string>
+    <string name="category_source">Kategorie: WHO, Nutrition for a healthy life.</string>
+    <string-array name="bmi_category_names">
+        <item>@string/category_underweight</item><item>@string/category_normal</item>
+        <item>@string/category_overweight</item><item>@string/category_obesity_1</item>
+        <item>@string/category_obesity_2</item><item>@string/category_obesity_3</item>
+    </string-array>
+    <string-array name="bmi_category_ranges">
+        <item>@string/range_underweight</item><item>@string/range_normal</item>
+        <item>@string/range_overweight</item><item>@string/range_obesity_1</item>
+        <item>@string/range_obesity_2</item><item>@string/range_obesity_3</item>
+    </string-array>
+</resources>

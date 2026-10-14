@@ -1,0 +1,78 @@
+OVĚŘENÍ BMI KALKULAČKY
+
+Java 17 a Android SDK Platform 35 / Build Tools 35.0.0.
+39 JUnit testů prošlo (JUnit Console 1.10.2, Jupiter 5.10.2).
+XML prošlo kontrolou syntaxe, reference UI textů směřují do strings.xml.
+Android prostředky zkompilovány a slinkovány aapt2.
+Všechny Android Java zdroje a skutečný generovaný R.java zkompilovány proti android.jar.
+DEX vytvořen d8, APK zarovnáno zipalign a podepsáno testovacím klíčem.
+Podpis ověřen apksigner (v1, v2, v3); zkontrolován manifest APK (API 23–35).
+Gradle build zde nedokončen: síťové prostředí nevyřešilo Android Gradle Plugin z repozitářů.
+APK je proto sestaveno přímo nástroji Android SDK ze stejných zdrojů.
+Emulátor ani telefon zde nebyl spuštěn; postup ruční kontroly je v POKYNY.txt.
+
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+╷
+├─ JUnit Jupiter ✔
+│  └─ BmiCalculatorTest ✔
+│     ├─ categoryBoundaries(double, int) ✔
+│     │  ├─ [1] 18.49, 0 ✔
+│     │  ├─ [2] 18.5, 1 ✔
+│     │  ├─ [3] 24.99, 1 ✔
+│     │  ├─ [4] 25, 2 ✔
+│     │  ├─ [5] 29.99, 2 ✔
+│     │  ├─ [6] 30, 3 ✔
+│     │  ├─ [7] 34.99, 3 ✔
+│     │  ├─ [8] 35, 4 ✔
+│     │  ├─ [9] 39.99, 4 ✔
+│     │  ├─ [10] 40, 5 ✔
+│     │  └─ [11] 60, 5 ✔
+│     ├─ rejectsOverflowAndUnderflow() ✔
+│     ├─ invalidHeight(String) ✔
+│     │  ├─ [1]  ✔
+│     │  ├─ [2]   ✔
+│     │  ├─ [3] 0 ✔
+│     │  ├─ [4] -175 ✔
+│     │  ├─ [5] 1.75 ✔
+│     │  ├─ [6] 175,5 ✔
+│     │  ├─ [7] abc ✔
+│     │  ├─ [8] NaN ✔
+│     │  ├─ [9] Infinity ✔
+│     │  └─ [10] 1e2 ✔
+│     ├─ integerHeight() ✔
+│     ├─ invalidWeight(String) ✔
+│     │  ├─ [1]  ✔
+│     │  ├─ [2]   ✔
+│     │  ├─ [3] 0 ✔
+│     │  ├─ [4] -70 ✔
+│     │  ├─ [5] abc ✔
+│     │  ├─ [6] NaN ✔
+│     │  ├─ [7] Infinity ✔
+│     │  ├─ [8] 70,5.2 ✔
+│     │  └─ [9] 1e3 ✔
+│     ├─ rejectsNonPositiveAndNonFiniteValues() ✔
+│     ├─ acceptsFractionWithoutLeadingZero() ✔
+│     ├─ formulaAndCentimetres() ✔
+│     ├─ immediatelyBeforeEachBoundary() ✔
+│     ├─ decimalWeightAndComma() ✔
+│     ├─ nullInputs() ✔
+│     └─ veryLargeValues() ✔
+├─ JUnit Vintage ✔
+└─ JUnit Platform Suite ✔
+
+Test run finished after 130 ms
+[         7 containers found      ]
+[         0 containers skipped    ]
+[         7 containers started    ]
+[         0 containers aborted    ]
+[         7 containers successful ]
+[         0 containers failed     ]
+[        39 tests found           ]
+[         0 tests skipped         ]
+[        39 tests started         ]
+[         0 tests aborted         ]
+[        39 tests successful      ]
+[         0 tests failed          ]
+
