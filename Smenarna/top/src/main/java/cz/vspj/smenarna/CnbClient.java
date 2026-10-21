@@ -26,7 +26,7 @@ public final class CnbClient {
    }
   }finally{c.disconnect();}
  }
- private static double number(String v){double x=Double.parseDouble(v.replace(',','.'));if(!Double.isFinite(x)||x<=0)throw new IllegalArgumentException();return x;}
+ private static double number(String v){double x=Double.parseDouble(v.replace(',','.'));if((Double.isNaN(x)||Double.isInfinite(x))||x<=0)throw new IllegalArgumentException();return x;}
  public static Rates parseDaily(String txt){
   String[] rows=txt.replace("\uFEFF", "").split("\\r?\\n");
   if(rows.length<3||!rows[0].matches("\\d{2}\\.\\d{2}\\.\\d{4} #\\d+"))throw new IllegalArgumentException();
