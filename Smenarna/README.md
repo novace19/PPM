@@ -24,6 +24,14 @@ Zdroj a specifikace: https://www.cnb.cz/cs/casto-kladene-dotazy/Kurzy-devizoveho
 
 ## Ověření a screenshoty
 
-`bash checks/check.sh` kontroluje čistou Java logiku. `bash gradlew :basic1:assembleDebug :basic2:assembleDebug :top:assembleDebug` sestaví aplikace. GitHub Actions přidává Android Lint a následně pořídí skutečné screenshoty v emulátoru; výsledné APK, reporty a PNG jsou v artefaktech příslušného běhu. Screenshoty po stažení doplňte do dokumentací v docs.
+`bash checks/check.sh` kontroluje čistou Java logiku. `bash gradlew :basic1:assembleDebug :basic2:assembleDebug :top:assembleDebug` sestaví aplikace. GitHub Actions přidává Android Lint a následně pořídí skutečné screenshoty v emulátoru; výsledné APK, reporty a PNG jsou v artefaktech příslušného běhu. Referenční screenshoty jsou vloženy přímo do dokumentací v docs.
 
-Při přípravě v pracovním prostředí byly ověřeny XML a reference na textové zdroje. Lokální sestavení a Java testy nebylo možné dokončit: prostředí nemá Android SDK ani javac a síť neumožnila stažení Gradlu. Úspěch sestavení, lint a běh aplikací musí potvrdit GitHub Actions nebo Android Studio; tento soubor je nepředstírá.
+Sestavení debug APK, Android Lint a kontroly Java logiky prošly na GitHub Actions dne 21. 10. 2026. Snímky z běžícího emulátoru jsou součástí zpráv:
+
+- [Dokumentace verze 1.x](docs/Dokumentace-1.x.md)
+- [Dokumentace verze 2.x](docs/Dokumentace-2.x.md)
+- [Dokumentace verze 3.x](docs/Dokumentace-3.x.md)
+
+[APK a reporty ověřeného sestavení](https://github.com/novace19/PPM/actions/runs/39563677579) najdete v části Artifacts → smenarna-apk-and-reports. Archiv obsahuje basic1-debug.apk, basic2-debug.apk a top-debug.apk. Celý ověřovací běh včetně snímků emulátoru úspěšně prošel.
+
+Před školním odevzdáním doporučujeme aplikace otevřít v Android Studiu a vyzkoušet i na vlastním telefonu. Automatické screenshoty a kontroly nejsou náhradou všech manuálních scénářů, například všech kombinací otočení zařízení nebo dlouhodobé dostupnosti sítě.

@@ -41,7 +41,14 @@ for module in ['basic1','basic2','top']:
     if module!='top':
         click('toCzk');click('convert');shot(module+'-reverse')
     if module=='basic2':
-        click('currency');adb('shell','input','keyevent','20');adb('shell','input','keyevent','66')
+        click('currency')
+        adb('shell','uiautomator','dump','/sdcard/window.xml')
+        import re
+        for n in ET.fromstring(adb('shell','cat','/sdcard/window.xml')).iter('node'):
+            if n.get('text')=='USD':
+                x1,y1,x2,y2=map(int,re.findall(r'\d+',n.get('bounds')))
+                adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2));break
+        else:raise RuntimeError('V nabídce chybí USD')
         click('toForeign');click('convert');shot('basic2-usd')
     if module=='top':
         click('rates');time.sleep(18);shot('top-rates')

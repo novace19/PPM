@@ -38,10 +38,36 @@ Zdroj rozhraní: https://www.cnb.cz/cs/casto-kladene-dotazy/Kurzy-devizoveho-trh
 | Kurzy a graf, přepnutí záložek | Dvě samostatné stránky, historie dle měny |
 | Zpět / křížek | Návrat na úvod / ukončení úloh aplikace |
 
-## Stav ověření a printscreeny
+## Ověření sestavení
 
-Dokumentace popisuje implementaci; zatím nedokládá úspěšné spuštění na zařízení. Lokální kontrola XML a textových referencí prošla. Lokálně chybí Android SDK a javac; Gradle nebylo možné stáhnout. Sestavení, testy a screenshoty zajišťuje přiložený workflow GitHub Actions, pokud jej GitHub umožní spustit.
+Dne 21. 10. 2026 byly na GitHub Actions (JDK 17, Android SDK 35) úspěšně provedeny:
 
-Před odevzdáním doplňte skutečné PNG z artefaktu `smenarna-real-screenshots` (nebo z vlastního emulátoru), výsledek sestavení a datum testování. Žádné náhledy zde nejsou vydávány za screenshoty běžící aplikace.
+- samostatné sestavení debug APK všech tří modulů;
+- Android Lint všech tří modulů;
+- Java kontroly prázdných/neplatných vstupů, desetinné čárky, obou směrů převodu, přetečení, denního a ročního parseru ČNB i kurzů za více jednotek měny.
 
-Požadované obrázky: hlavní obrazovka s výsledkem, prázdný vstup s chybou; u 2.x také jiná měna a opačný směr, u TOP navíc lístek, graf a chyba sítě. Ke každému obrázku připojte krátký popisek provedené akce a výsledku.
+Ověřovací běh: https://github.com/novace19/PPM/actions/runs/39563677579
+
+APK jsou v artefaktu `smenarna-apk-and-reports` uvedeného běhu. Testy parseru používají kontrolované vzorky; aktuálnost skutečných síťových dat dokládá až běžící TOP aplikace s datem lístku.
+
+## Printscreeny
+
+### Převod podle načteného kurzu ČNB
+
+![TOP — převod a datum zveřejněného lístku](../screenshots/top-conversion.png)
+
+Na emulátoru bylo převedeno 2500 CZK na 102,77 EUR podle lístku platného k 20. 10. 2026. Datum označuje platnost lístku, nikoliv datum screenshotu.
+
+### Kurzovní lístek v samostatné aktivitě
+
+![TOP — aktuální kurzy ČNB a první záložka](../screenshots/top-rates.png)
+
+Lístek obsahuje všechny měny vrácené denním rozhraním ČNB. Kurzy jsou převedeny na jednu jednotku. V horní části jsou ovládací prvky pro návrat a ukončení.
+
+### Vývoj kurzu ve druhé záložce
+
+![TOP — graf vývoje EUR](../screenshots/top-chart.png)
+
+Graf zobrazuje 60 zveřejněných záznamů EUR od 28. 7. do 20. 10. 2026. Vodorovná osa představuje datum, svislá CZK za jedno EUR. Nad grafem lze změnit měnu.
+
+Snímky byly pořízeny z běžících aplikací na emulátoru Pixel 2 / Android 10 dne 21. 10. 2026. Pro vložení do zprávy byly pouze zmenšeny; nejde o návrhy obrazovek. Celý ověřovací workflow včetně zachycení snímků úspěšně dokončil běh uvedený výše.
