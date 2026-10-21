@@ -7,6 +7,8 @@ base=Path(__file__).resolve().parents[1]
 out=base/'screenshots';out.mkdir(exist_ok=True)
 def adb(*args):return sp.check_output(['adb',*args])
 def click(rid):
+    adb('shell','input','swipe','450','500','450','1450','300')
+    time.sleep(.5)
     for attempt in range(5):
         adb('shell','uiautomator','dump','/sdcard/window.xml')
         xml=adb('shell','cat','/sdcard/window.xml')
@@ -14,12 +16,15 @@ def click(rid):
             if n.get('resource-id','').endswith('/'+rid):
                 import re
                 x1,y1,x2,y2=map(int,re.findall(r'\d+',n.get('bounds')))
-                adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2));return
+                if x2>x1 and y2>y1:
+                    adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2));return
         adb('shell','input','swipe','450','1400','450','500','400');time.sleep(1)
     raise RuntimeError('Element nenalezen: '+rid)
 def shot(name):
     time.sleep(1)
     (out/(name+'.png')).write_bytes(adb('exec-out','screencap','-p'))
+adb('shell','wm','density','320')
+time.sleep(2)
 for module in ['basic1','basic2','top']:
     apk=next((base/module/'build/outputs/apk/debug').glob('*.apk'))
     adb('install','-r',str(apk))
@@ -27,9 +32,11 @@ for module in ['basic1','basic2','top']:
     time.sleep(3)
     click('convert')
     if module!='top':shot(module+'-empty')
-    click('amount');adb('shell','input','text','2500');adb('shell','input','keyevent','111')
+    click('amount');adb('shell','input','text','2500');adb('shell','input','keyevent','4')
     if module=='top':time.sleep(18)
     click('convert');shot(module+'-conversion')
+    if module!='top':
+        click('toCzk');click('convert');shot(module+'-reverse')
     if module=='top':
         click('rates');time.sleep(18);shot('top-rates')
         # Druhá záložka přes její skutečné textové označení.

@@ -33,6 +33,7 @@ public class MainActivity extends FragmentActivity {
    double rate=liveRate(index);
    double output=Money.convert(value,rate,forward);
    amount.setError(null);
+   ((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(amount.getWindowToken(),0);
    result.setText(getString(R.string.result_currency,String.format(Locale.forLanguageTag("cs-CZ"),"%.2f",output),forward?codes[index]:getString(R.string.czk)));
   } catch(NumberFormatException e){amount.setError(getString(R.string.error_invalid));}
  }
