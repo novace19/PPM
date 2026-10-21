@@ -7,18 +7,21 @@ base=Path(__file__).resolve().parents[1]
 out=base/'screenshots';out.mkdir(exist_ok=True)
 def adb(*args):return sp.check_output(['adb',*args])
 def click(rid):
-    adb('shell','input','swipe','450','500','450','1450','300')
-    time.sleep(.5)
-    for attempt in range(5):
+    import re
+    for attempt in range(7):
         adb('shell','uiautomator','dump','/sdcard/window.xml')
         xml=adb('shell','cat','/sdcard/window.xml')
         for n in ET.fromstring(xml).iter('node'):
             if n.get('resource-id','').endswith('/'+rid):
-                import re
                 x1,y1,x2,y2=map(int,re.findall(r'\d+',n.get('bounds')))
                 if x2>x1 and y2>y1:
                     adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2));return
-        adb('shell','input','swipe','450','1400','450','500','400');time.sleep(1)
+        # Posouvat v pravém okraji, mimo EditText a jeho výběrové úchyty.
+        if attempt==0:adb('shell','input','swipe','1050','500','1050','1500','300')
+        else:adb('shell','input','swipe','1050','1500','1050','500','300')
+        time.sleep(1)
+    shot('failure-'+rid)
+    (out/('failure-'+rid+'.xml')).write_bytes(xml)
     raise RuntimeError('Element nenalezen: '+rid)
 def shot(name):
     time.sleep(1)
@@ -37,6 +40,9 @@ for module in ['basic1','basic2','top']:
     click('convert');shot(module+'-conversion')
     if module!='top':
         click('toCzk');click('convert');shot(module+'-reverse')
+    if module=='basic2':
+        click('currency');adb('shell','input','keyevent','20');adb('shell','input','keyevent','66')
+        click('toForeign');click('convert');shot('basic2-usd')
     if module=='top':
         click('rates');time.sleep(18);shot('top-rates')
         # Druhá záložka přes její skutečné textové označení.
