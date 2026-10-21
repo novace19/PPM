@@ -1,0 +1,1 @@
+<resources><string-array name="currencies"><item>@string/eur</item><item>@string/usd</item><item>@string/gbp</item><item>@string/pln</item></string-array></resources>

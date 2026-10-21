@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Jednoduchá směnárna TOP</string>
+    <string name="hint_amount">Zadejte částku</string>
+    <string name="btn_convert">Spočítat převod</string>
+    <string name="radio_czk_to_eur">CZK → EUR</string>
+    <string name="radio_eur_to_czk">EUR → CZK</string>
+    <string name="to_foreign">Prodej CZK → cizí měna</string>
+    <string name="to_czk">Nákup CZK ← cizí měna</string>
+    <string name="error_empty">Vyplňte částku!</string>
+    <string name="error_invalid">Zadejte platné nezáporné číslo!</string>
+    <string name="result_currency">Výsledek: %1$s %2$s</string>
+    <string name="placeholder">Zde se zobrazí výsledek</string>
+    <string name="subtitle">Přehledně. Jednoduše. Na dvě desetinná místa.</string>
+    <string name="currency_label">Vyberte cizí měnu</string>
+    <string name="rate_fixed">Pevné výukové kurzy • bez poplatků</string>
+    <string name="rate_live">Referenční kurzy ČNB • bez poplatků</string>
+    <string name="open_rates">Kurzy ČNB a graf</string>
+    <string name="tab_rates">Kurzovní lístek</string>
+    <string name="tab_chart">Vývoj kurzu</string>
+    <string name="back">Zpět</string>
+    <string name="close">Ukončit aplikaci</string>
+    <string name="refresh">Načíst znovu</string>
+    <string name="loading">Načítám data ČNB…</string>
+    <string name="network_error">Kurzy se nepodařilo načíst. Zkontrolujte připojení a zkuste to znovu.</string>
+    <string name="rate_date">Kurzy platné k %1$s</string>
+    <string name="rate_row">%1$s • %2$s %3$s = %4$s CZK</string>
+    <string name="graph_title">%1$s — CZK za 1 jednotku</string>
+    <string name="graph_range">%1$s až %2$s • %3$d záznamů</string>
+    <string name="no_history">Pro tuto měnu není dostupný dostatek dat.</string>
+    <string name="waiting">Nejprve načtěte kurzy ČNB.</string>
+    <string name="chart_description">Čárový graf vývoje kurzu vybrané měny</string>
+    <string name="czk">CZK</string>
+    <string name="eur">EUR</string>
+    <string name="usd">USD</string>
+    <string name="gbp">GBP</string>
+    <string name="pln">PLN</string>
+</resources>
