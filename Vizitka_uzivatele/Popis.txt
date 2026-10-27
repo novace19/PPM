@@ -1,0 +1,1 @@
+Vizitka uživatele načte jméno, věk a oblíbený operační systém. Po potvrzení souhlasu a stisknutí tlačítka zobrazí vyplněné údaje. Bez souhlasu upozorní uživatele a nevyplněné jméno nebo věk označí chybou.

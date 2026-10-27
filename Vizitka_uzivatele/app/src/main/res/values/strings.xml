@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vizitka uživatele</string>
+    <string name="jmeno">Jméno</string>
+    <string name="vek">Věk</string>
+    <string name="vyber_systemu">Oblíbený operační systém</string>
+    <string name="souhlas">Souhlasím se zpracováním údajů</string>
+    <string name="odeslat">Odeslat</string>
+    <string name="chybi_souhlas">Zaškrtněte souhlas se zpracováním údajů.</string>
+    <string name="chybi_jmeno">Vyplňte jméno.</string>
+    <string name="chybi_vek">Vyplňte věk.</string>
+    <string name="vysledek_format">Jméno: %1$s\nVěk: %2$s\nSystém: %3$s</string>
+    <string-array name="operacni_systemy">
+        <item>Android</item><item>iOS</item><item>Windows</item><item>Linux</item><item>macOS</item>
+    </string-array>
+</resources>
