@@ -5,12 +5,13 @@ import androidx.fragment.app.FragmentActivity;
 import java.util.Locale;
 public class MainActivity extends FragmentActivity {
  private EditText amount; private TextView result;
- private final String[] codes={"EUR","USD","GBP","PLN"};
+ private String[] codes;
  private final double[] fixed={25.0,23.0,29.5,5.8};
  
  @Override public void onCreate(Bundle state) {
   super.onCreate(state); setContentView(R.layout.activity_main);
   amount=findViewById(R.id.amount); result=findViewById(R.id.result);
+  codes=getResources().getStringArray(R.array.currencies);
   if(state!=null) result.setText(state.getString("result",getString(R.string.placeholder)));
   findViewById(R.id.convert).setOnClickListener(v->convert());
   
