@@ -6,7 +6,7 @@ def click(rid):
         xml = adb('shell', 'cat', '/sdcard/window.xml')
         for node in ET.fromstring(xml).iter('node'):
             if node.get('resource-id', '').endswith('/' + rid):
-                x1, y1, x2, y2 = map(int, re.findall(r'\\d+', node.get('bounds')))
+                x1, y1, x2, y2 = map(int, re.findall(r'\d+', node.get('bounds')))
                 if x2 > x1 and y2 > y1:
                     adb('shell', 'input', 'tap', str((x1+x2)//2), str((y1+y2)//2))
                     return
